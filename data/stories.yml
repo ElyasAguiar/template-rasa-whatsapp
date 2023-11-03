@@ -1,0 +1,40 @@
+version: "3.1"
+
+stories:
+
+- story: cumprimento
+  steps:
+  - intent: cumprimentar
+  - action: utter_greet
+
+- story: happy path
+  steps:
+  - intent: cumprimentar
+  - action: utter_greet
+  - intent: humor_ótimo
+  - action: utter_happy
+
+- story: estou triste
+  steps:
+  - intent: humor_infeliz
+  - action: utter_cheer_up
+
+- story: sad path 1
+  steps:
+  - intent: cumprimentar
+  - action: utter_greet
+  - intent: humor_infeliz
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: afirmar
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: cumprimentar
+  - action: utter_greet
+  - intent: humor_infeliz
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: despedir
+  - action: utter_goodbye
