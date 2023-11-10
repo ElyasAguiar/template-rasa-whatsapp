@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY . app/
+COPY ./ ./
 
 COPY ./requirements.txt /tmp
 
@@ -19,10 +19,10 @@ RUN apt-get clean                                                   && \
 
 RUN rasa telemetry disable
 
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
 
 RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 5005
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
