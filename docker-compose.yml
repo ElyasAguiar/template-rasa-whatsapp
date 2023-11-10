@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  app:
+    container_name: "rasa-whatsapp"
+    image: "rasa-whatsapp-img"
+    env_file: .env
+    build:
+      context: .
+    ports:
+      - 5005:5005
+    networks:
+      - bubble
+
+networks:
+  bubble:
+    external: true
