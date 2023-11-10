@@ -16,6 +16,8 @@ RUN apt-get update                                                  && \
 
 RUN rasa telemetry disable
 
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+
 RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 5005
