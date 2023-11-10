@@ -6,4 +6,4 @@ set -e
 
 echo "Starting Core..."
 
-python main.py
+python core/main.py
