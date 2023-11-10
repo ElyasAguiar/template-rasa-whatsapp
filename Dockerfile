@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 WORKDIR /core
 
-COPY ./requirements.txt /tmp
+COPY ./core/requirements.txt /tmp
 
 
 # Install and Configure base packages and dependencies
@@ -15,7 +15,7 @@ RUN apt-get update                                                  && \
 RUN apt-get clean                                                   && \
   apt-get remove -y build-essential
 
-COPY . /core
+COPY ./core /core
 RUN rasa telemetry disable
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
