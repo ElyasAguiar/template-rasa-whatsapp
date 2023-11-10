@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-COPY . app/
+WORKDIR /core
 
 COPY ./requirements.txt /tmp
 
@@ -15,12 +15,13 @@ RUN apt-get update                                                  && \
 RUN apt-get clean                                                   && \
   apt-get remove -y build-essential
 
+COPY . /core
 RUN rasa telemetry disable
 
-COPY ./docker-entrypoint.sh app/docker-entrypoint.sh
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN chmod +x app/docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 5005
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
