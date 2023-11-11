@@ -32,6 +32,12 @@ responses:
   utter_iamabot:
     - text: 'Eu sou um bot, desenvolvido pela AguiarDev.'
 
+  utter_nao_encontrada:
+  - text: |-
+      Poxa, não consegui entender.
+
+      Vamos tentar com outras palavras? 🙂
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

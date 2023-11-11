@@ -19,12 +19,11 @@ pipeline:
 - name: FallbackClassifier
   threshold: 0.3
   ambiguity_threshold: 0.1
-
 # https://rasa.com/docs/rasa/core/policies/
 policies:
 - name: MemoizationPolicy
 - name: TEDPolicy
   max_history: 5
   epochs: 100
-- name: RulePolicy
+
 assistant_id: 20231103-154137-many-tread
