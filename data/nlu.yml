@@ -1,93 +1,34 @@
-version: "3.1"
+version: "3.0"
 
 nlu:
-
-- intent: cumprimentar
+- intent: saudacao
   examples: |
-    - ei
-    - olá
-    - oi
-    - olá lá
-    - bom dia
-    - boa tarde
-    - moin
-    - oi lá
-    - vamos lá
-    - e aí, cara
-    - bom dia
-    - boa tarde
-    - boa tarde
+    - Olá
+    - Oi
+    - Bom dia
+    - Boa tarde
+    - Boa noite
 
-- intent: despedir
+- intent: consultar_processo
   examples: |
-    - tchau
-    - adeus
-    - até mais
-    - boa noite
-    - adeus
-    - adeus
-    - tenha um bom dia
-    - nos vemos por aí
-    - tchau tchau
-    - até logo
+    - Quero consultar o andamento do processo
+    - Gostaria de saber sobre o processo
+    - Como está meu processo?
+    - Consultar processo [12345](numero_processo)
+    - Me informe sobre o processo [67890](numero_processo)
+    - Qual o status do processo [54321](numero_processo)?
 
-- intent: afirmar
+- intent: agradecimento
   examples: |
-    - sim
-    - y
-    - de fato
-    - é claro
-    - isso parece bom
-    - correto
+    - Obrigado
+    - Obrigada
+    - Muito obrigado
+    - Agradeço
+    - Valeu
 
-- intent: negar
+- intent: despedida
   examples: |
-    - não
-    - n
-    - nunca
-    - não acho
-    - não gosto disso
-    - de jeito nenhum
-    - não, obrigado
-    - não realmente
-
-- intent: humor_ótimo
-  examples: |
-    - perfeito
-    - ótimo
-    - incrível
-    - me sinto como um rei
-    - maravilhoso
-    - estou me sentindo muito bem
-    - estou ótimo
-    - estou incrível
-    - vou salvar o mundo
-    - super animado
-    - extremamente bom
-    - tão, tão perfeito
-    - tão bom
-    - tão perfeito
-
-- intent: humor_infeliz
-  examples: |
-    - meu dia foi horrível
-    - estou triste
-    - não me sinto muito bem
-    - estou decepcionado
-    - super triste
-    - estou tão triste
-    - triste
-    - muito triste
-    - infeliz
-    - não bom
-    - não muito bom
-    - extremamente triste
-    - tão triste
-    - tão triste
-
-- intent: desafio_do_bot
-  examples: |
-    - você é um bot?
-    - você é humano?
-    - estou falando com um bot?
-    - estou falando com um humano?
+    - Tchau
+    - Até logo
+    - Até mais
+    - Até a próxima

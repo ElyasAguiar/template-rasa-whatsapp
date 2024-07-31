@@ -1,43 +1,31 @@
-version: '3.1'
+version: "3.0"
 
 intents:
-  - cumprimentar
-  - despedir
-  - afirmar
-  - negar
-  - humor_ótimo
-  - humor_infeliz
-  - desafio_do_bot
+  - saudacao
+  - consultar_processo
+  - agradecimento
+  - despedida
+
+entities:
+  - numero_processo
+
+slots:
+  numero_processo:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: numero_processo
 
 responses:
-  utter_greet:
-    - text: |-
-        Olá, eu sou do Bob, o seu agente virtual.
+  utter_saudacao:
+  - text: "Olá! Como posso ajudá-lo hoje?"
 
-        O que você gostaria de saber da AguiarDev?
+  utter_agradecimento:
+  - text: "De nada! Se precisar de mais alguma coisa, estou à disposição."
 
-  utter_cheer_up:
-    - text: 'Aqui está algo para animá-lo:'
-      image: 'https://i.imgur.com/nGF1K8f.jpg'
+  utter_despedida:
+  - text: "Até logo! Tenha um ótimo dia!"
 
-  utter_did_that_help:
-    - text: 'Isso ajudou você?'
-
-  utter_happy:
-    - text: 'Ótimo, continue!'
-
-  utter_goodbye:
-    - text: 'Tchau'
-
-  utter_iamabot:
-    - text: 'Eu sou um bot, desenvolvido pela AguiarDev.'
-
-  utter_nao_encontrada:
-  - text: |-
-      Poxa, não consegui entender.
-
-      Vamos tentar com outras palavras? 🙂
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+actions:
+  - action_consultar_processo

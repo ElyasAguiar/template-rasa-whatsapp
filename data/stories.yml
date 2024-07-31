@@ -1,40 +1,24 @@
-version: "3.1"
+version: "3.0"
 
 stories:
-
-- story: cumprimento
+- story: saudacao
   steps:
-  - intent: cumprimentar
-  - action: utter_greet
+  - intent: saudacao
+  - action: utter_saudacao
 
-- story: happy path
+- story: consultar_processo
   steps:
-  - intent: cumprimentar
-  - action: utter_greet
-  - intent: humor_ótimo
-  - action: utter_happy
+  - intent: consultar_processo
+  - slot_was_set:
+    - numero_processo: "12345"
+  - action: action_consultar_processo
 
-- story: estou triste
+- story: agradecimento
   steps:
-  - intent: humor_infeliz
-  - action: utter_cheer_up
+  - intent: agradecimento
+  - action: utter_agradecimento
 
-- story: sad path 1
+- story: despedida
   steps:
-  - intent: cumprimentar
-  - action: utter_greet
-  - intent: humor_infeliz
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: afirmar
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: cumprimentar
-  - action: utter_greet
-  - intent: humor_infeliz
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: despedir
-  - action: utter_goodbye
+  - intent: despedida
+  - action: utter_despedida

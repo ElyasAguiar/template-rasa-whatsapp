@@ -1,91 +1,50 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+version: "3.0"
 
-stories:
-- story: happy path 1
+test_stories:
+- story: teste_saudacao
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      Oi
+    intent: saudacao
+  - action: utter_saudacao
 
-- story: happy path 2
+- story: teste_consultar_processo
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      Quero consultar o andamento do processo
+    intent: consultar_processo
+  - action: action_consultar_processo
+  - slot_was_set:
+    - numero_processo: "12345"
 
-- story: sad path 1
+- story: teste_consultar_processo_com_numero
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
+      Consultar processo 67890
+    intent: consultar_processo
+    entities:
+      - numero_processo: "67890"
+  - action: action_consultar_processo
+  - slot_was_set:
+    - numero_processo: "67890"
 
-- story: sad path 2
+- story: teste_agradecimento
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
+      Obrigado
+    intent: agradecimento
+  - action: utter_agradecimento
 
-- story: sad path 3
+- story: teste_despedida
   steps:
   - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+      Tchau
+    intent: despedida
+  - action: utter_despedida
 
-- story: say goodbye
+- story: teste_fallback
   steps:
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+      blablabla
+    intent: nlu_fallback
+  - action: action_default_fallback
